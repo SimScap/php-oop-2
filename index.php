@@ -9,9 +9,10 @@ BONUS:
 Alcuni prodotti (es. antipulci) avranno la caratteristica che saranno disponibili solo in un periodo particolare (es. da maggio ad agosto).
  */
 
-include_once __DIR__ . "/data/user.php"; 
-
-$prova = new User('mario', 'rossi', 'mariorossi@gmail.it', 'MarioRos', 24);
+include_once __DIR__ . "/data/User.php";
+include_once __DIR__ . "/data/Registered.php";
+include_once __DIR__ . "/data/Card.php";
+$prova = new CreditCard (3333444455557777, 02, 22, 666);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +24,10 @@ $prova = new User('mario', 'rossi', 'mariorossi@gmail.it', 'MarioRos', 24);
 </head>
 <body>
     <?php 
-    var_dump($prova)
+var_dump($prova)
+    ?>
+    <?php 
+    echo $prova -> setExpirationMonth('3');
     ?>
 </body>
 </html>
