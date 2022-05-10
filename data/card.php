@@ -19,17 +19,17 @@ public function getCardNumber(){
 
 public function setCardNumber(){
     if (is_numeric($cardNumber) && strlen($cardNumber) == 16 ) {
-    return  $this -> cardNumber = $cardNumber;
+    $this -> cardNumber = $cardNumber;
     }else {
         echo 'Inserisci un numero della carta di credito valido';
     }
 }
 
 public function getExpirationMonth(){
-    $this -> getExpirationMonth;
+    return $this -> getExpirationMonth;
 }
 
-public function setExpirationMonth(){
+public function setExpirationMonth($expirationMonth){
     if (is_numeric($expirationMonth) && $expirationMonth >= 1 && $expirationMonth <= 12) {
     $this->expirationMonth = $expirationMonth;    
 }else {
@@ -38,10 +38,10 @@ public function setExpirationMonth(){
 }
 
 public function getExpirationYear(){
-    $this -> getExpirationYear;
+    return $this -> getExpirationYear;
 }
 
-public function setExpirationYear(){
+public function setExpirationYear($expirationYear){
     if (is_numeric($expirationYear) && $expirationYear >= 0 && $expirationYear <= 99) {
         $this->expirationYear = $expirationYear;
     }else {

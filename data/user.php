@@ -1,14 +1,28 @@
 <?php
+class User{
 
-class User {
-    public string $firstName;
+    public $name;
+    public $surname;
+    public $dateOfBirth;
+    public $address;
+    public $creditCard;
+    public $cart = array();
 
-    function __construct(string $firstName) {
-        $this -> firstName  = $firstName;
+
+    public function __construct($name, $surname)
+    {
+    $this->name = $name;
+    $this->surname = $surname;
     }
 
-    public function getFirstName(){
-        return $this->firstName;
+    
+    public function getCreditCard($card){
+    $this->creditCard = $card;
     }
+
+    public function addProduct($prod){
+    $this->cart[] = $prod;  
+    }
+    
 }
 ?> 

@@ -12,7 +12,7 @@ Alcuni prodotti (es. antipulci) avranno la caratteristica che saranno disponibil
 include_once __DIR__ . "/data/User.php";
 include_once __DIR__ . "/data/Registered.php";
 include_once __DIR__ . "/data/Card.php";
-$prova = new CreditCard (3333444455557777, 02, 22, 666);
+$prova = new User ('Abdul');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +25,7 @@ $prova = new CreditCard (3333444455557777, 02, 22, 666);
 <body>
     <?php 
 var_dump($prova)
-    ?>
-    <?php 
-    echo $prova -> setExpirationMonth('3');
+
     ?>
 </body>
 </html>
