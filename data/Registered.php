@@ -2,18 +2,18 @@
 
 require_once __DIR__ . '/User.php';
 
-class PremiumUser extends User{
+class Registered extends User{
     public $discount;
     public $category;
 
-    public function __construct($_name, $_surname, $_category)
+    public function __construct($name, $surname, $category)
     {
-    $this->name = $_name;
-    $this->surname = $_surname;
-    $this->age = $_age;
+    $this->name = $name;
+    $this->surname = $surname;   
 
-    if (strtolower($_category) === 'true' || strtolower($_category) === 'false'){
-        $this->category = $_category; 
+
+    if (strtolower($category) === 'true'){
+        $this->category = $category; 
     }
     }
 

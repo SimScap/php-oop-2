@@ -1,64 +1,29 @@
 <?php 
 
 class CreditCard{
-    protected  $cardNumber;
-    protected int $expirationMonth;
-    protected int $expirationYear;
-    protected int $cvv;
+    public $number;
+    public $expirationDate;
+    public $code;
 
-    function __construct($cardNumber, int $expirationMonth, int $expirationYear, int $cvv) {
-        $this -> cardNumber         = $cardNumber;
-        $this -> expirationMonth    = $expirationMonth;
-        $this -> expirationYear     = $expirationYear;
-        $this -> setCvv($cvv);
-}
-
-public function getCardNumber(){
-    return $this -> $cardNumber;
-}
-
-public function setCardNumber(){
-    if (is_numeric($cardNumber) && strlen($cardNumber) == 16 ) {
-    $this -> cardNumber = $cardNumber;
-    }else {
-        echo 'Inserisci un numero della carta di credito valido';
+    public function __construct($number, $expirationDate, $code){
+    if (strlen($number) !== 16 ){
+        throw new Exception("Numero carta di credito non valido. Le cifre devono essere 16.");
+    } else{
+        $this->number = $number;
     }
-}
-
-public function getExpirationMonth(){
-    return $this -> getExpirationMonth;
-}
-
-public function setExpirationMonth($expirationMonth){
-    if (is_numeric($expirationMonth) && $expirationMonth >= 1 && $expirationMonth <= 12) {
-    $this->expirationMonth = $expirationMonth;    
-}else {
-    echo 'inserisci un mese valido';
-}
-}
-
-public function getExpirationYear(){
-    return $this -> getExpirationYear;
-}
-
-public function setExpirationYear($expirationYear){
-    if (is_numeric($expirationYear) && $expirationYear >= 0 && $expirationYear <= 99) {
-        $this->expirationYear = $expirationYear;
-    }else {
-        echo 'Inserisci un\'anno valido';
+    if ($expirationDate > date('Y')){
+        $this->expirationDate = $expirationDate;
+    } else {
+        throw new Exception("Carta di credito scaduta");
+    } 
+    if (strlen($code) === 3){
+        $this->code = $code;
+    } else {
+        echo 'Inserisci un codice di sicurezza valido';
+    } 
     }
-    
+
 }
-public function getCvv (){
-    return $this -> cvv; 
-}
-public function setCvv($cvv){
-    if (is_numeric($cvv) && strlen($cvv) == 3){
-    return $this -> cvv = $cvv;
-}else {
-    echo 'Inserisci un codice di sicurezza valido';
-}        
-}
-}
+
 
 ?>
